@@ -1,0 +1,1 @@
+﻿{"parent":"minecraft:item/generated","textures":{"layer0":"oreganized:item/silver_spear"},"overrides":[{"predicate":{"spears:in_gui":0},"model":"oreganized:item/silver_spear_in_hand"}]}

@@ -1,0 +1,1 @@
+﻿{"parent":"minecraft:item/generated","textures":{"layer0":"betterend:item/aeternium_spear"},"overrides":[{"predicate":{"spears:in_gui":0},"model":"betterend:item/aeternium_spear_in_hand"}]}

@@ -1,0 +1,7 @@
+﻿{
+  "type": "minecraft:smithing_transform",
+  "template": { "item": "betterend:handle_attachment_smithing_template" },
+  "base": { "item": "betterend:terminite_spear_head" },
+  "addition": { "item": "minecraft:stick" },
+  "result": { "id": "betterend:terminite_spear" }
+}
