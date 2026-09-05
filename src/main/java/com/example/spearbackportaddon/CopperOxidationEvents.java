@@ -15,6 +15,7 @@ public class CopperOxidationEvents {
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
+        if (!SpearConfig.COPPER_OXIDATION.get()) return;
         Player player = event.getEntity();
         if (player.level().isClientSide()) return;
         if (player.level().getGameTime() % 60 != 0) return;

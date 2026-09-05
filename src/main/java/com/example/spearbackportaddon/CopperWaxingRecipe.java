@@ -28,6 +28,7 @@ public class CopperWaxingRecipe extends CustomRecipe {
 
     @Override
     public boolean matches(CraftingInput input, Level level) {
+        if (!SpearConfig.COPPER_OXIDATION.get()) return false;
         int spearCount = 0;
         int waxCount = 0;
         for (int i = 0; i < input.size(); i++) {

@@ -1,4 +1,11 @@
-﻿{
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "caverns_and_chasms:silver_spear"
+    }
+  ],
+  
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,

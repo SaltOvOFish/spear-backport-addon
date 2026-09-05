@@ -1,4 +1,11 @@
-﻿{
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "betterend:thallasium_spear_head"
+    }
+  ],
+  
   "type": "bclib:smithing",
   "allowedTools": "betterend:anvil_tool/iron",
   "anvilLevel": 2,

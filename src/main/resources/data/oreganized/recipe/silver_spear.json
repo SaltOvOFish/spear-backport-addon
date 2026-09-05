@@ -1,4 +1,11 @@
-﻿{
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "oreganized:silver_spear"
+    }
+  ],
+  
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {

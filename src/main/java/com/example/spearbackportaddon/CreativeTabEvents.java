@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 @EventBusSubscriber(modid = SpearBackportAddon.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class CreativeTabEvents {
@@ -22,11 +23,28 @@ public class CreativeTabEvents {
         event.insertAfter(new ItemStack(before), new ItemStack(item), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
 
+    private static Item insertVariant(BuildCreativeModeTabContentsEvent event, Item prev, DeferredItem<Item> item) {
+        if (item == null) return prev;
+        insert(event, prev, item.get());
+        return item.get();
+    }
+
     @SubscribeEvent
     public static void onCreativeTab(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-            if (SpearBackportAddon.CANDC_COPPER_SPEAR != null)
+            if (SpearBackportAddon.CANDC_COPPER_SPEAR != null) {
                 insert(event, spear("stone_spear"), SpearBackportAddon.CANDC_COPPER_SPEAR.get());
+                if (SpearConfig.COPPER_VARIANTS_IN_TAB.get()) {
+                    Item prev = SpearBackportAddon.CANDC_COPPER_SPEAR.get();
+                    prev = insertVariant(event, prev, SpearBackportAddon.CANDC_EXPOSED_COPPER_SPEAR);
+                    prev = insertVariant(event, prev, SpearBackportAddon.CANDC_WEATHERED_COPPER_SPEAR);
+                    prev = insertVariant(event, prev, SpearBackportAddon.CANDC_OXIDIZED_COPPER_SPEAR);
+                    prev = insertVariant(event, prev, SpearBackportAddon.CANDC_WAXED_COPPER_SPEAR);
+                    prev = insertVariant(event, prev, SpearBackportAddon.CANDC_WAXED_EXPOSED_COPPER_SPEAR);
+                    prev = insertVariant(event, prev, SpearBackportAddon.CANDC_WAXED_WEATHERED_COPPER_SPEAR);
+                    prev = insertVariant(event, prev, SpearBackportAddon.CANDC_WAXED_OXIDIZED_COPPER_SPEAR);
+                }
+            }
             if (SpearBackportAddon.OREGANIZED_SILVER_SPEAR != null)
                 insert(event, spear("iron_spear"), SpearBackportAddon.OREGANIZED_SILVER_SPEAR.get());
             if (SpearBackportAddon.CANDC_SILVER_SPEAR != null) {

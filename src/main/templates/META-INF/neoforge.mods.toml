@@ -46,3 +46,11 @@ description = '''${mod_description}'''
     versionRange = "[0,)"
     ordering = "AFTER"
     side = "BOTH"
+
+# 可选前置：Caverns & Chasms
+[[dependencies.${mod_id}]]
+    modId = "caverns_and_chasms"
+    type = "optional"
+    versionRange = "[0,)"
+    ordering = "AFTER"
+    side = "BOTH"
